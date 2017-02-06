@@ -9,7 +9,7 @@ start() {
 
   ebegin "Starting minio"
   source ${SERVICE_HOME}/conf/minio-server.cfg
-  start-stop-daemon --start -c ${SERVICE_USER} $ --exec ${SERVICE_HOME}/bin/minio server ${MINIO_VOLUMES} \
+  start-stop-daemon --start --exec ${SERVICE_HOME}/bin/minio server ${MINIO_VOLUMES} \
     --pidfile ${SERVICE_HOME}/minio.pid
   eend $?
 }
@@ -17,6 +17,6 @@ start() {
 stop() {
   ebegin "Stopping minio"
   start-stop-daemon --stop --exec ${SERVICE_HOME}/bin/minio \
-    --pidfile /path/to/my_pidfile
+    --pidfile ${SERVICE_HOME}/minio.pid
   eend $?
 }
