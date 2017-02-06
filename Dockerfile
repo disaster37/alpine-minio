@@ -13,8 +13,7 @@ ENV SERVICE_NAME=minio \
     PATH=/opt/minio/bin:${PATH}
 
 # Install service software
-RUN SERVICE_RELEASE=minio-${SERVIVE_VERSION} && \
-    apk update && apk add openrc &&\
+RUN apk update && apk add openrc glibc &&\
     mkdir -p ${SERVICE_HOME}/logs ${SERVICE_HOME}/data ${SERVICE_HOME}/bin ${SERVICE_HOME}/conf && \
     addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
     adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_HOME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER}
