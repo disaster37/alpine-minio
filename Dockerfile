@@ -3,6 +3,7 @@ MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
 ENV SERVICE_NAME=minio \
     SERVICE_HOME=/opt/minio \
+    SERVICE_VERSION=RELEASE.2017-01-25T03-14-52Z \
     SERVICE_CONF=/opt/minio/conf/minio-server.cfg \
     SERVICE_USER=minio \
     SERVICE_UID=10003 \
@@ -12,13 +13,13 @@ ENV SERVICE_NAME=minio \
     PATH=/opt/minio/bin:${PATH}
 
 # Install service software
-RUN SERVICE_RELEASE=minio && \
+RUN SERVICE_RELEASE=minio-${SERVIVE_VERSION} && \
     apk update && apk add openrc &&\
     mkdir -p ${SERVICE_HOME}/logs ${SERVICE_HOME}/data ${SERVICE_HOME}/bin ${SERVICE_HOME}/conf && \
-    cd ${SERVICE_HOME}/bin && \
-    curl -sSLO "https://dl.minio.io/server/minio/release/linux-amd64/minio" && \
     addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
     adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_HOME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER}
+
+ADD https://dl.minio.io/server/minio/release/linux-amd64/archive/minio.${SERVICE_VERSION} ${SERVICE_HOME}/bin/minio
 
 ADD root /
 RUN chmod +x ${SERVICE_HOME}/bin/* \
