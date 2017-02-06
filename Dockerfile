@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-FROM rawmind/rancher-tools:0.3.4-7
-MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
-# Set environment
-ENV SERVICE_NAME=minio \
-=======
 FROM rawmind/alpine-monit:0.5.20-4
 MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
@@ -12,24 +6,14 @@ ENV SERVICE_NAME=minio \
     SERVICE_HOME=/opt/minio \
     SERVICE_VERSION=RELEASE.2017-01-25T03-14-52Z \
     SERVICE_CONF=/opt/minio/conf/minio-server.cfg \
->>>>>>> 5faa096b048a8b3cf66a50c9e34cbdcb573eab3a
     SERVICE_USER=minio \
     SERVICE_UID=10003 \
     SERVICE_GROUP=minio \
     SERVICE_GID=10003 \
-<<<<<<< HEAD
     SERVIVE_HOME=/opt/mino \
     SERVICE_ARCHIVE=/opt/minio-rancher-tools.tgz
 
-# Add files
-ADD root /
-RUN cd ${SERVICE_VOLUME} && \
-    chmod 755 ${SERVICE_VOLUME}/confd/bin/*.sh && \
-    tar czvf ${SERVICE_ARCHIVE} * && \
-    rm -rf ${SERVICE_VOLUME}/*
-=======
-    SERVICE_VOLUME=/opt/tools \
-    PATH=/opt/minio/bin:${PATH}
+
 
 # Install Glibc
 ENV GLIBC_VERSION="2.23-r1"
@@ -61,4 +45,3 @@ WORKDIR $SERVICE_HOME
 VOLUME ${SERVICE_HOME}/data
 
 EXPOSE 9000
->>>>>>> 5faa096b048a8b3cf66a50c9e34cbdcb573eab3a
