@@ -42,18 +42,12 @@ function serviceStart {
     log "[ Starting ${SERVICE_NAME}... ]"
     serviceCheck
     serviceLog
-    ${SERVICE_HOME}/bin/minio.sh
+    ${SERVICE_HOME}/bin/minio.sh start
 }
 
 function serviceStop {
     log "[ Stoping ${SERVICE_NAME}... ]"
-    pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
-
-	while [ "x$pid" != "x" ]; do
-    	kill -SIGTERM $pid
-    	sleep 5
-    	pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
-	done
+    ${SERVICE_HOME}/bin/minio.sh stop
 }
 
 function serviceRestart {
