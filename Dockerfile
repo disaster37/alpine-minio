@@ -15,23 +15,23 @@ ENV SERVICE_NAME=minio \
 # Install Glibc
 ENV GLIBC_VERSION="2.23-r1"
 RUN \
-    apk add --update -t deps wget ca-certificates \
-    && cd /tmp \
-    && wget https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
-    && wget https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk \
-    && apk add --allow-untrusted glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk \
-    && /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib/ \
-    && echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf \
-    && apk del --purge deps \
-    && rm /tmp/* /var/cache/apk/*
+    apk add --update -t deps wget ca-certificates &&\
+    cd /tmp &&\
+    wget https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk &&\
+    wget https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk &&\
+    apk add --allow-untrusted glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk &&\
+    /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib/ &&\
+    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf &&\
+    apk del --purge deps &&\
+    rm /tmp/* /var/cache/apk/*
 
 # Install service software
 RUN apk update && apk add openrc &&\
     mkdir -p ${SERVICE_HOME}/logs ${SERVICE_HOME}/data ${SERVICE_HOME}/bin ${SERVICE_HOME}/conf && \
     addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
     adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_HOME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} &&\
-    && apk del --purge deps \
-    && rm /tmp/* /var/cache/apk/*
+    apk del --purge deps &&\
+    rm /tmp/* /var/cache/apk/*
 
 ADD https://dl.minio.io/server/minio/release/linux-amd64/archive/minio.${SERVICE_VERSION} ${SERVICE_HOME}/bin/minio
 
