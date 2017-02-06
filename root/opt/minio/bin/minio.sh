@@ -1,16 +1,16 @@
 #!/bin/sh -e
-$DAEMON="${SERVICE_HOME}/bin/minio"
-$DAEMON_NAME=minio
+DAEMON="${SERVICE_HOME}/bin/minio"
+DAEMON_NAME=minio
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
 
-test -x $DAEMON || exit 0
+test -x ${DAEMON} || exit 0
 
 
 
 d_start () {
         echo "Starting ${DAEMON_NAME}"
         source ${SERVICE_HOME}/conf/minio-server.cfg
-	      start-stop-daemon --background --name ${DAEMON_NAME} --start --quiet --exec $DAEMON server ${MINIO_VOLUMES}
+	      start-stop-daemon --background --name ${DAEMON_NAME} --start --quiet --exec ${DAEMON} server ${MINIO_VOLUMES}
         echo $?
 }
 
