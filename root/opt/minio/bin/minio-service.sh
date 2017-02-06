@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SERVICE_LOG_DIR=${KAFKA_LOG_DIRS:-${SERVICE_HOME}"/logs"}
+SERVICE_LOG_DIR=${MINIO_LOG_DIRS:-${SERVICE_HOME}"/logs"}
 SERVICE_LOG_FILE=${SERVICE_LOG_FILE:-${SERVICE_LOG_DIR}"/server.log"}
 
 function log {
@@ -9,7 +9,7 @@ function log {
 
 function serviceDefault {
     log "[ Applying default ${SERVICE_NAME} configuration... ]"
-    ${SERVICE_HOME}/bin/server.properties.sh
+    ${SERVICE_HOME}/bin/minio-server.cfg.sh
 }
 
 function serviceConf {
