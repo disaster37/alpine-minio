@@ -1,5 +1,5 @@
 FROM rawmind/alpine-monit:0.5.20-4
-Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
+MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
 ENV SERVICE_NAME=minio \
     SERVICE_HOME=/opt/minio \
