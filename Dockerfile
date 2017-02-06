@@ -13,6 +13,7 @@ ENV SERVICE_NAME=minio \
 
 # Install service software
 RUN SERVICE_RELEASE=minio && \
+    apk update && apk add openrc &&\
     mkdir -p ${SERVICE_HOME}/logs ${SERVICE_HOME}/data ${SERVICE_HOME}/bin ${SERVICE_HOME}/conf && \
     cd ${SERVICE_HOME}/bin && \
     curl -sSLO "https://dl.minio.io/server/minio/release/linux-amd64/minio" && \
