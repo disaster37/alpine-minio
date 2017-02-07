@@ -11,7 +11,7 @@ ENV SERVICE_NAME=minio \
     SERVICE_GROUP=minio \
     SERVICE_GID=10003 \
     SERVIVE_HOME=/opt/mino \
-    SERVICE_ARCHIVE=/opt/minio-rancher-tools.tgz
+    SERVICE_ARCHIVE=/opt/rancher-tools.tgz
 
 
 
