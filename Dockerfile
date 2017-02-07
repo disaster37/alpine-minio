@@ -36,6 +36,9 @@ RUN apk update && apk add openrc &&\
 
 ADD https://dl.minio.io/server/minio/release/linux-amd64/archive/minio.${SERVICE_VERSION} ${SERVICE_HOME}/bin/minio
 
+# Install confd
+RUN mkdir -p /opt/confd/etc/conf.d /opt/confd/etc/templates
+
 ADD root /
 RUN chmod +x ${SERVICE_HOME}/bin/* \
   && chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_HOME} /opt/monit \

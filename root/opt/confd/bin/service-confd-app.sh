@@ -26,7 +26,7 @@ function checkNetwork {
 
 function serviceTemplate {
     log "[ Checking ${CONF_NAME} template... ]"
-    bash ${CONF_HOME}/bin/gen.conf-app.tmpl.sh
+    bash /opt/confd/bin/gen-conf-app-tmpl.sh
 }
 
 function serviceStart {
@@ -53,7 +53,7 @@ CONF_HOME=${CONF_HOME:-"/opt/tools/confd"}
 CONF_LOG=${CONF_LOG:-"${CONF_HOME}/log/confd.log"}
 CONF_BIN=${CONF_BIN:-"${CONF_HOME}/bin/confd"}
 CONF_BACKEND=${CONF_BACKEND_APP:-"env"}
-CONF_PREFIX=${CONF_PREFIX:-""}
+CONF_PREFIX=${CONF_PREFIX:-"/"}
 CONF_INTERVAL=${CONF_INTERVAL:-60}
 CONF_PARAMS=${CONF_PARAMS:-"-confdir /opt/confd/etc -backend ${CONF_BACKEND} -prefix ${CONF_PREFIX}"}
 CONF_ONETIME="${CONF_BIN} -onetime ${CONF_PARAMS}"
