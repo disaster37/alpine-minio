@@ -52,10 +52,10 @@ CONF_NAME=confd-app
 CONF_HOME=${CONF_HOME:-"/opt/tools/confd"}
 CONF_LOG=${CONF_LOG:-"${CONF_HOME}/log/confd.log"}
 CONF_BIN=${CONF_BIN:-"${CONF_HOME}/bin/confd"}
-CONF_BACKEND=${CONF_BACKEND:-"rancher"}
-CONF_PREFIX=${CONF_PREFIX:-"/2015-12-19"}
+CONF_BACKEND=${CONF_BACKEND_APP:-"env"}
+CONF_PREFIX=${CONF_PREFIX:-""}
 CONF_INTERVAL=${CONF_INTERVAL:-60}
-CONF_PARAMS=${CONF_PARAMS:-"-confdir /opt/tools/confd/etc -backend ${CONF_BACKEND} -prefix ${CONF_PREFIX}"}
+CONF_PARAMS=${CONF_PARAMS:-"-confdir /opt/confd/etc -backend ${CONF_BACKEND} -prefix ${CONF_PREFIX}"}
 CONF_ONETIME="${CONF_BIN} -onetime ${CONF_PARAMS}"
 CONF_OPTS="-interval ${CONF_INTERVAL} ${CONF_PARAMS}"
 

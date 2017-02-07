@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat << EOF > ${SERVICE_VOLUME}/confd/etc/conf.d/minio-server.cfg.toml
+cat << EOF > /opt/confd/etc/conf.d/minio-server.cfg.toml
 [template]
 prefix = "${PREFIX_KEY}"
 src = "minio-server.cfg.tmpl"
@@ -15,7 +15,7 @@ keys = [
 reload_cmd = "${SERVICE_HOME}/bin/minio-service.sh restart"
 EOF
 
-cat << EOF > ${SERVICE_VOLUME}/confd/etc/templates/minio-server.cfg.tmpl
+cat << EOF > /opt/confd/etc/templates/minio-server.cfg.tmpl
 
 {{ if (getenv "SCHEDULER_INSTANCES") }}
   {{ \$servers := split (getenv "SCHEDULER_INSTANCES") "," }}

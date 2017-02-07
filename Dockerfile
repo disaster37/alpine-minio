@@ -38,7 +38,9 @@ ADD https://dl.minio.io/server/minio/release/linux-amd64/archive/minio.${SERVICE
 
 ADD root /
 RUN chmod +x ${SERVICE_HOME}/bin/* \
-  && chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_HOME} /opt/monit
+  && chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_HOME} /opt/monit \
+  && chmod +x /opt/confd/bin/* \
+  && chown -R ${SERVICE_USER}:${SERVICE_GROUP} /opt/confd
 
 USER $SERVICE_USER
 WORKDIR $SERVICE_HOME
