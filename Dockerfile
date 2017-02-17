@@ -1,10 +1,6 @@
 FROM alpine:3.5
 MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
-#Proxy setting
-ENV http_proxy http://cs.supaddev:45X5.VcMaN.9pO1@SMS37CTI1:8080
-ENV https_proxy http://cs.supaddev:45X5.VcMaN.9pO1@SMS37CTI1:8080
-
 # Application settings
 ENV CONFD_PREFIX_KEY="/minio" \
     CONFD_PREFIX_URL="" \
