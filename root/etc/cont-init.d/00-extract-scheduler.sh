@@ -1,5 +1,11 @@
 #!/usr/bin/with-contenv sh
 
 if [ -d "${SCHEDULER_VOLUME}/script.d" ]; then
-  exec sh ${SCHEDULER_VOLUME}/script.d/*
+  for SCRIPT in ${SCHEDULER_VOLUME}/script.d/*
+	do
+		if [ -f $SCRIPT ]
+		then
+			sh $SCRIPT
+		fi
+	done
 fi
