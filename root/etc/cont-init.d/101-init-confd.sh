@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/bin/sh
 
 if [ "${CONFD_PREFIX_URL}X" == "X" ]; then
   PREFIX=""
