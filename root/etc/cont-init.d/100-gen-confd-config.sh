@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv sh
 
-exec cat << EOF > ${CONFD_HOME}/etc/conf.d/minio-run.toml
+cat << EOF > ${CONFD_HOME}/etc/conf.d/minio-run.toml
 [template]
 prefix = "${CONFD_PREFIX_KEY}"
 src = "minio-run.tmpl"

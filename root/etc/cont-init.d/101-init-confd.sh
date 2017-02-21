@@ -11,4 +11,4 @@ if [ -f "${SCHEDULER_VOLUME}/conf/scheduler.cfg" ]; then
   source "${SCHEDULER_VOLUME}/conf/scheduler.cfg"
 fi
 
-exec ${CONFD_HOME}/bin/confd -confdir ${CONFD_HOME}/etc -onetime -backend ${CONFD_BACKEND} ${PREFIX} ${NODE}
+${CONFD_HOME}/bin/confd -confdir ${CONFD_HOME}/etc -onetime -backend ${CONFD_BACKEND} ${PREFIX} ${NODE}
