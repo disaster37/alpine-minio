@@ -22,7 +22,9 @@ ENV CONFD_VERSION="v0.13.6" \
 ADD https://github.com/yunify/confd/releases/download/${CONFD_VERSION}/confd-alpine-amd64.tar.gz ${CONFD_HOME}/bin/
 RUN mkdir -p "${CONFD_HOME}/etc/conf.d" "${CONFD_HOME}/etc/templates" "${CONFD_HOME}/log" &&\
     tar -xvzf "${CONFD_HOME}/bin/confd-alpine-amd64.tar.gz" -C "${CONFD_HOME}/bin/" &&\
-    rm "${CONFD_HOME}/bin/confd-alpine-amd64.tar.gz"
+    rm "${CONFD_HOME}/bin/confd-alpine-amd64.tar.gz" &&\
+    apk --update add fping &&\
+    rm -rf /var/cache/apk/*
 
 # Install s6-overlay
 ADD https://github.com/just-containers/s6-overlay/releases/download/v1.19.1.1/s6-overlay-amd64.tar.gz /tmp/
