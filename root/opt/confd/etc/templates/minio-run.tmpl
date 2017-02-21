@@ -1,5 +1,8 @@
 #!/usr/bin/with-contenv sh
 
+export MINIO_ACCESS_KEY="{{getv "/config/minio.access.key"}}"
+export MINIO_SECRET_KEY="{{getv "/config/minio.secret.key"}}"
+
 {{ if (getenv "SCHEDULER_CONTAINERS_IP") }}
   {{ $servers := split (getenv "SCHEDULER_CONTAINERS_IP") "," }}
   {{ $length := len $servers}} {{if eq $length 1}}

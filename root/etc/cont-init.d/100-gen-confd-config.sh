@@ -8,6 +8,7 @@ dest = "/etc/services.d/minio/run"
 mode = "0744"
 keys = [
   "/servers",
-  "/disks"
+  "/disks",
+  "/config"
 ]
 EOF
