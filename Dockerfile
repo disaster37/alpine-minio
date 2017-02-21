@@ -3,12 +3,11 @@ MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
 
 # Application settings
 ENV CONFD_PREFIX_KEY="/minio" \
-    CONFD_PREFIX_URL="" \
     CONFD_BACKEND="env" \
     CONFD_INTERVAL="60" \
     CONFD_NODES="" \
     APP_HOME="/opt/minio" \
-    APP_VERSION="RELEASE.2017-01-25T03-14-52Z" \
+    APP_VERSION="RELEASE.2017-02-16T01-47-30Z" \
     SCHEDULER_VOLUME="/opt/scheduler" \
     SCHEDULER_ARCHIVE="/opt/scheduler/scheduler.tgz" \
     USER=minio \

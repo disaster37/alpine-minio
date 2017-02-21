@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv sh
 
-{{ if (getenv "SCHEDULER_INSTANCES") }}
-  {{ $servers := split (getenv "SCHEDULER_INSTANCES") "," }}
+{{ if (getenv "SCHEDULER_CONTAINERS_IP") }}
+  {{ $servers := split (getenv "SCHEDULER_CONTAINERS_IP") "," }}
   {{ $length := len $servers}} {{if eq $length 1}}
 MINIO_VOLUMES="{{range $i, $diskName := ls "/disks"}}/data/{{getv (printf "/disks/%s" $diskName)}} {{end}}"
     {{ else }}
