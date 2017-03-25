@@ -12,9 +12,14 @@ With only one disk:
 docker run --rm --name minio-standalone \
   -e 'MINIO_CONFIG_minio.access.key=my_key' \
   -e 'MINIO_CONFIG_minio.secret.key=my_long_secret_key' \
-  -v /mnt/minio:/data \
+  -v $PWD/data/minio:/data \
   -p 9000:9000 \
   webcenter/alpine-minio:latest
+```
+
+Or use docker-compose:
+```bash
+docker-compose up
 ```
 
 With many disks:

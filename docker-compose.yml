@@ -5,6 +5,8 @@ services:
     image: webcenter/alpine-minio:develop
     volumes:
       - minio-data:/data/disk1
+    ports:
+      - 9000:9000
 volumes:
   minio-data:
     driver: local
