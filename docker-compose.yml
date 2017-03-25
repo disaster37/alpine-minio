@@ -1,0 +1,10 @@
+version: '2'
+services:
+  minio-server:
+    tty: true
+    image: webcenter/alpine-minio:develop
+    volumes:
+      - minio-data:/data/disk1
+volumes:
+  minio-data:
+    driver: local
