@@ -36,7 +36,7 @@ cat << EOF
       For french people, you can visit my blog http://blog.webcenter.fr about Docker and Rancher
 
 
-EOF
+
 cat << "EOF"
       .ooooooo+:`     /ooo-    /ooo:    +oo   -/osyso+- `+oo:    +oo: +ooooooooo`ooooooo+:`
       -mmmhyydmmh-   -mmmmh`   smmmm:   dmm``sdmdyosdmdo`dmmo    hmmo dmmmyyyyyy.mmmhyydmmh-
@@ -50,3 +50,4 @@ cat << "EOF"
        Community ^_^
 
 EOF
+
