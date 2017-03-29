@@ -115,3 +115,7 @@ The following parameter permit to config minio server:
 - **MINIO_CONFIG_minio.secret.key**: The secret key to connect on Minio.
 - **MINIO_DISKS_X**: The list of disks to use by Minio. For example `-e MINIO_DISKS_1=disk1` and `-e MINIO_DISKS_2=disk2`. Minio will inialize storage `/data/disk1` and `/data/disk2`.
 - **MINIO_SERVERS_X**: The list of server to create a Minio cluster. For example `-e MINIO_SERVERS_1=10.0.0.1` and `-e MINIO_SERVERS_2=10.0.0.2`
+
+
+
+> The default disk called `disk0`is use if you not specify any disk.
