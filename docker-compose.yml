@@ -4,7 +4,7 @@ services:
     tty: true
     image: webcenter/alpine-minio:latest
     volumes:
-      - minio-data:/data/disk1
+      - minio-data:/data/disk0
     ports:
       - 9000:9000
 volumes:

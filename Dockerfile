@@ -14,7 +14,6 @@ ENV CONFD_PREFIX_KEY="/minio" \
     GROUP=minio \
     UID=10003 \
     GID=10003 \
-    MINIO_DISKS_1="disk1" \
     CONTAINER_NAME="alpine-minio" \
     CONTAINER_AUHTOR="Sebastien LANGOUREAUX <linuxworkgroup@hotmail.com>" \
     CONTAINER_SUPPORT="https://github.com/disaster37/alpine-minio/issues" \
