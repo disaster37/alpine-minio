@@ -8,7 +8,7 @@ ENV CONFD_PREFIX_KEY="/minio" \
     CONFD_NODES="" \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
     APP_HOME="/opt/minio" \
-    APP_VERSION="RELEASE.2017-03-16T21-50-32Z" \
+    APP_VERSION="RELEASE.2017-08-05T00-00-53Z" \
     SCHEDULER_VOLUME="/opt/scheduler" \
     USER=minio \
     GROUP=minio \
@@ -51,10 +51,9 @@ RUN \
 # Install minio software
 RUN \
     mkdir -p ${APP_HOME}/log /data ${APP_HOME}/bin ${APP_HOME}/conf && \
-    curl https://dl.minio.io/server/minio/release/linux-amd64/archive/minio.${APP_VERSION} -o ${APP_HOME}/bin/minio &&\
+    curl -f https://dl.minio.io/server/minio/release/linux-amd64/minio.${APP_VERSION} -o ${APP_HOME}/bin/minio && \
     addgroup -g ${GID} ${GROUP} && \
     adduser -g "${USER} user" -D -h ${APP_HOME} -G ${GROUP} -s /bin/sh -u ${UID} ${USER}
-
 
 ADD root /
 RUN chmod +x ${APP_HOME}/bin/* &&\
