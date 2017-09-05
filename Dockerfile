@@ -55,7 +55,6 @@ RUN \
     addgroup -g ${GID} ${GROUP} && \
     adduser -g "${USER} user" -D -h ${APP_HOME} -G ${GROUP} -s /bin/sh -u ${UID} ${USER}
 
-
 ADD root /
 RUN chmod +x ${APP_HOME}/bin/* &&\
     chown -R ${USER}:${GROUP} ${APP_HOME}
