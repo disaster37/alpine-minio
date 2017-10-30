@@ -1,10 +1,10 @@
 #!/usr/bin/with-contenv sh
 
-{{if (exists "/config/minio.access.key")}}
-export MINIO_ACCESS_KEY="{{getv "/config/minio.access.key"}}"
+{{if (exists "/config/accesskey")}}
+export MINIO_ACCESS_KEY="{{getv "/config/accesskey"}}"
 {{end}}
-{{if (exists "/config/minio.secret.key")}}
-export MINIO_SECRET_KEY="{{getv "/config/minio.secret.key"}}"
+{{if (exists "/config/secretkey")}}
+export MINIO_SECRET_KEY="{{getv "/config/secretkey"}}"
 {{end}}
 
 {{- if (getenv "SCHEDULER_CONTAINERS_IP") }}
