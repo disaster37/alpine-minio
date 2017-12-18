@@ -119,3 +119,6 @@ The following parameter permit to config minio server:
 
 
 > The default disk called `disk0`is use if you not specify any disk.
+
+## Contribute
+Your PR are always welcome. Please make PR on `develop`branche.
